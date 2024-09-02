@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nossa Loja Online</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://kit.fontawesome.com/668041fbda.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header class="search-container">
+        <i id="lupa" class="fa-solid fa-magnifying-glass"></i>
+        <input class="buscar" type="text" placeholder="&nbsp;&nbsp;Buscar jogos...">
+        <a href="{{ url_for('cart.view_cart') }}"><i class="fa-solid fa-cart-shopping" id="carrinho"></i></a>
+        <h3 class="titulo-loja">Yggdrasil</h3>
+    </header>
+    <section id="hero">
+        <img src="https://epiclootshop.com/cdn/shop/articles/Yggdrasil.jpg?v=1669947075" alt="Promoção Especial" class="yggdrasil">
+    </section>
+
+    <table>
+        <tr>
+            <td>
+                <div class="categories">
+                    <h2>Genêros</h2>
+                    <div class="categories-grid">
+                        {% for category in categories %}
+                        <div class="category-item">
+                            <a href="{{ url_for('product.list_products_by_category', category_id=category.id) }}">{{ category.name }}</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="product-grid">
+                    {% for product in products %}
+                    <div class="product-item">
+                        <img src="{{ product.images[0] }}" alt="{{ product.name }}" class="product-image">
+                        <h3>{{ product.name }}</h3>
+                    </div>
+                    {% endfor %}
+                </div>
+            </td>
+        </tr>
+    </table>
+    <p class="preco-1">R$359,90</p>
+    <p class="preco-2">R$259,90</p>
+    <p class="preco-3">R$189,90</p>
+    <p class="preco-4">R$109,90</p>
+    <p class="preco-5">R$259,90</p>
+    <p class="preco-6">R$69,90</p>
+    <p class="preco-7">R$359,90</p>
+    <p class="preco-8">R$39,90</p>
+    <p class="preco-9">R$69,90</p>
+    <p class="preco-10">R$29,90</p>
+    
+</body>
+</html>
